@@ -92,24 +92,24 @@
 // _R = GPR
 // _I = Immediate
 #define RVTEST_IO_ASSERT_GPR_EQ(_SP, _R, _I)                            \
-    LOCAL_IO_PUSH(_SP)                                                  \
-    li          t0, _I;                                                 \
-    beq         _R, t0, 20002f;                                         \
-    LOCAL_IO_WRITE_STR("Assertion violation: file ");                   \
-    LOCAL_IO_WRITE_STR(__FILE__);                                       \
-    LOCAL_IO_WRITE_STR(", line ");                                      \
-    LOCAL_IO_WRITE_STR(TOSTRING(__LINE__));                             \
-    LOCAL_IO_WRITE_STR(": ");                                           \
-    LOCAL_IO_WRITE_STR(# _R);                                           \
-    LOCAL_IO_WRITE_STR("(");                                            \
-    LOCAL_IO_WRITE_GPR(_R);                                             \
-    LOCAL_IO_WRITE_STR(") != ");                                        \
-    LOCAL_IO_WRITE_STR(# _I);                                           \
-    LOCAL_IO_WRITE_STR("\n");                                           \
-    li TESTNUM, 100;                                                    \
-    RVTEST_FAIL;                                                        \
-20002:                                                                  \
-    LOCAL_IO_POP(_SP)
+//     LOCAL_IO_PUSH(_SP)                                                  \
+//     li          t0, _I;                                                 \
+//     beq         _R, t0, 20002f;                                         \
+//     LOCAL_IO_WRITE_STR("Assertion violation: file ");                   \
+//     LOCAL_IO_WRITE_STR(__FILE__);                                       \
+//     LOCAL_IO_WRITE_STR(", line ");                                      \
+//     LOCAL_IO_WRITE_STR(TOSTRING(__LINE__));                             \
+//     LOCAL_IO_WRITE_STR(": ");                                           \
+//     LOCAL_IO_WRITE_STR(# _R);                                           \
+//     LOCAL_IO_WRITE_STR("(");                                            \
+//     LOCAL_IO_WRITE_GPR(_R);                                             \
+//     LOCAL_IO_WRITE_STR(") != ");                                        \
+//     LOCAL_IO_WRITE_STR(# _I);                                           \
+//     LOCAL_IO_WRITE_STR("\n");                                           \
+//     li TESTNUM, 100;                                                    \
+//     RVTEST_FAIL;                                                        \
+// 20002:                                                                  \
+//     LOCAL_IO_POP(_SP)
 
 // _F = FPR
 // _C = GPR
@@ -156,14 +156,14 @@
 // _SP = (volatile register)
 #define LOCAL_IO_WRITE_STR(_STR) RVTEST_IO_WRITE_STR(x31, _STR)
 #define RVTEST_IO_WRITE_STR(_SP, _STR)                                  \
-    LOCAL_IO_PUSH(_SP)                                                  \
-    .section .data.string;                                              \
-20001:                                                                  \
-    .string _STR;                                                       \
-    .section .text.init;                                                \
-    la a0, 20001b;                                                      \
-    jal FN_WriteStr;                                                    \
-    LOCAL_IO_POP(_SP)
+//     LOCAL_IO_PUSH(_SP)                                                  \
+//     .section .data.string;                                              \
+// 20001:                                                                  \
+//     .string _STR;                                                       \
+//     .section .text.init;                                                \
+//     la a0, 20001b;                                                      \
+//     jal FN_WriteStr;                                                    \
+//     LOCAL_IO_POP(_SP)
 
 // generate assertion listing
 #define LOCAL_CHECK() RVTEST_IO_CHECK()
