@@ -11,7 +11,7 @@
 ################################ USER SETUP (if need) ################################
 
 ####Set path to main directory
-my $root_path = "/home/cheny/applications/RVC"; # root path (optional, but recommended)
+my $root_path = "/home/cheny/applications/RV-compliance"; # root path (optional, but recommended)
 if ($root_path ne undef)
 {
 	$root_path = $root_path."/";
