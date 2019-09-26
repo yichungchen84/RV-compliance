@@ -310,5 +310,5 @@ sub helpManual
 {
 	print "required files: \n";
 	print "--------------------------------------------\n";
-	die "developed by Yi-Chung Chen, SUNY New Paltz\n";
+	die "developed by Yi-Chung Chen, Tennessee State University and SUNY New Paltz, 2019\n";
 }
