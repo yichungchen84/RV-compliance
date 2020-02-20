@@ -5,3 +5,5 @@
 2. open the run_ct.pl and change $root_path to the full path of current main folder.
 3. "./run_ct.pl -runTB -arch rv32i" to create hex files.
 4. navigate to example/picorv32 and then "../../run_ct.pl -runRC -arch rv32i" to run compliance test
+
+RV32I - NOP, RF_width, and RF_size are 2019/2020 version due to errors in 2018/2019 version. 
