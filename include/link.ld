@@ -4,8 +4,12 @@ ENTRY(_start)
 SECTIONS
 {
   . = 0x00000000;
+  .text.trap : { *(.text.trap) }
+
+  . = 0x00000000;
   .text.init : { *(.text.init) }
-  . = ALIGN(0x1000);
+
+  . = ALIGN(0x2000);
   .tohost : { *(.tohost) }
   . = ALIGN(0x1000);
   .text : { *(.text) }
